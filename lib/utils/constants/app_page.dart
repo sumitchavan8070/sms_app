@@ -124,7 +124,7 @@ class _AppPageViewState extends State<AppPageView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 20,),
+                SizedBox(height: 20),
                 Container(
                   height: 100,
                   clipBehavior: Clip.hardEdge,
@@ -136,30 +136,51 @@ class _AppPageViewState extends State<AppPageView> {
                   ),
                   child: Image.asset(AssetPaths.appLogoPNG, fit: BoxFit.fill),
                 ),
+                SizedBox(height: 20),
 
                 ListTile(
-                  leading: const Icon(Icons.home),
-                  title:  Text("Home", style: Theme.of(context).textTheme.bodyMedium),
+                  leading: Image.asset(AssetPaths.homeGIF, fit: BoxFit.fill, width: 30, height: 30),
+                  title: Text("Home", style: Theme.of(context).textTheme.bodyMedium),
                   onTap: () {
                     Navigator.pop(context);
                   },
                 ),
 
                 ListTile(
-                  leading: const Icon(Icons.person),
-                  title:  Text("Profile", style: Theme.of(context).textTheme.bodyMedium),
-                  onTap: () {},
+                  leading: Image.asset(AssetPaths.userGIF, fit: BoxFit.fill, width: 30, height: 30),
+                  title: Text("Profile", style: Theme.of(context).textTheme.bodyMedium),
+                  onTap: () {
+                    Navigator.pop(context);
+
+                    MyNavigator.pushNamed(GoPaths.profile);
+
+                  },
                 ),
 
                 ListTile(
-                  leading: const Icon(Icons.settings),
-                  title:  Text("Settings", style: Theme.of(context).textTheme.bodyMedium),
-                  onTap: () {},
+                  leading: Image.asset(
+                    AssetPaths.campFireGIF,
+                    fit: BoxFit.fill,
+                    width: 30,
+                    height: 30,
+                  ),
+
+                  title: Text("Manage Leave", style: Theme.of(context).textTheme.bodyMedium),
+                  onTap: () {
+                    Navigator.pop(context);
+
+                    MyNavigator.pushNamed(GoPaths.leaveManagement);
+                  },
                 ),
 
                 ListTile(
-                  leading: const Icon(Icons.password),
-                  title:  Text("Change Password", style: Theme.of(context).textTheme.bodyMedium,),
+                  leading: Image.asset(
+                    AssetPaths.padLockGIF,
+                    fit: BoxFit.fill,
+                    width: 30,
+                    height: 30,
+                  ),
+                  title: Text("Change Password", style: Theme.of(context).textTheme.bodyMedium),
                   onTap: () {
                     // TODO: Implement logout
                     widget.scaffoldKey?.currentState?.closeDrawer();
@@ -199,14 +220,11 @@ class _AppPageViewState extends State<AppPageView> {
                     ),
                   ),
                 ),
-
-
               ],
             ),
           ),
         ),
       ),
     );
-
   }
 }

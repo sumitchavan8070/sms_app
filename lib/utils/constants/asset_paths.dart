@@ -33,12 +33,17 @@ class AssetPaths {
   static const appLogoPNG = "$_images/app_logo.png";
   static const razorPayPNG = "$_images/razor_pay_icon.png";
   static const idCardPNG = "$_images/id-card.png";
-  static const campFirePNG = "$_images/campfire.png";
+  static const qrCodePNG = "$_images/qr-code.png";
 
   // GIF
   static const managementGIF = "$_gif/management.gif";
   static const assignmentsGIF = "$_gif/homework.gif";
   static const groupChatGIF = "$_gif/group_chat.gif";
+  static const campFireGIF = "$_gif/campfire.gif";
+  static const padLockGIF = "$_gif/padlock.gif";
+  static const userGIF = "$_gif/user.gif";
+  static const homeGIF = "$_gif/home.gif";
+
 
   //   Lottie
   static const cuteBabyJSON = "$_lottie/cute_baby.json";

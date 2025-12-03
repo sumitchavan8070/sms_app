@@ -62,7 +62,7 @@ class _LandingViewState extends State<LandingView> {
     KeyValuePair(key: "Result", value: AssetPaths.resultPNG, path: GoPaths.userAttendanceView),
     KeyValuePair(key: "Group Chat", value: AssetPaths.groupChatGIF, path: GoPaths.groupChat),
     KeyValuePair(key: "Apply", value: AssetPaths.idCardPNG, path: GoPaths.razorPayPayment),
-    KeyValuePair(key: "Leave", value: AssetPaths.campFirePNG, path: GoPaths.leaveManagement),
+    KeyValuePair(key: "Leave", value: AssetPaths.campFireGIF, path: GoPaths.leaveManagement),
   ];
 
   @override
