@@ -87,11 +87,13 @@ class _LandingViewState extends State<LandingView> {
             child: ListView(
               physics: BouncingScrollPhysics(),
               children: [
-                StudentHeaderCard(
-                  name: _profileController.state?.profile?.fullName ?? "User",
-                  rollNo: _profileController.state?.profile?.user?.id?.toString() ?? "--",
-                  className: _profileController.state?.classroom?.name ?? "Class",
-                ),
+                _profileController.obx((state) {
+                  return StudentHeaderCard(
+                    name: _profileController.state?.profile?.fullName ?? "User",
+                    rollNo: _profileController.state?.profile?.user?.id?.toString() ?? "--",
+                    className: _profileController.state?.classroom?.name ?? "Class",
+                  );
+                }),
 
                 SizedBox(height: 10),
                 _buildGridData(),

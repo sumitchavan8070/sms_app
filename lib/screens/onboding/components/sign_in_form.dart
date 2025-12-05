@@ -99,6 +99,13 @@ class _SignInFormState extends State<SignInForm> {
   }
 
   @override
+  void initState() {
+    // TODO: implement initState
+    emailCtrl.text = "alice.smith@example.com";
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [

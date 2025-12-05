@@ -34,6 +34,7 @@ class AssetPaths {
   static const razorPayPNG = "$_images/razor_pay_icon.png";
   static const idCardPNG = "$_images/id-card.png";
   static const qrCodePNG = "$_images/qr-code.png";
+  static const noticePNG = "$_images/notice.png";
 
   // GIF
   static const managementGIF = "$_gif/management.gif";
@@ -43,7 +44,7 @@ class AssetPaths {
   static const padLockGIF = "$_gif/padlock.gif";
   static const userGIF = "$_gif/user.gif";
   static const homeGIF = "$_gif/home.gif";
-
+  static const busGIF = "$_gif/bus.gif";
 
   //   Lottie
   static const cuteBabyJSON = "$_lottie/cute_baby.json";

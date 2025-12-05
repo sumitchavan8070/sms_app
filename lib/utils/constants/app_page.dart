@@ -153,7 +153,6 @@ class _AppPageViewState extends State<AppPageView> {
                     Navigator.pop(context);
 
                     MyNavigator.pushNamed(GoPaths.profile);
-
                   },
                 ),
 
@@ -185,6 +184,28 @@ class _AppPageViewState extends State<AppPageView> {
                     // TODO: Implement logout
                     widget.scaffoldKey?.currentState?.closeDrawer();
                     MyNavigator.pushNamed(GoPaths.changePassword);
+                  },
+                ),
+
+                ListTile(
+                  leading: Image.asset(AssetPaths.busGIF, fit: BoxFit.fill, width: 30, height: 30),
+                  title: Text("Transport", style: Theme.of(context).textTheme.bodyMedium),
+                  onTap: () {
+                    // TODO: Implement logout
+                    widget.scaffoldKey?.currentState?.closeDrawer();
+                  },
+                ),
+                ListTile(
+                  leading: Image.asset(
+                    AssetPaths.noticePNG,
+                    fit: BoxFit.fill,
+                    width: 30,
+                    height: 30,
+                  ),
+                  title: Text("Notices", style: Theme.of(context).textTheme.bodyMedium),
+                  onTap: () {
+                    // TODO: Implement logout
+                    widget.scaffoldKey?.currentState?.closeDrawer();
                   },
                 ),
                 Spacer(),

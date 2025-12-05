@@ -7,6 +7,7 @@ import 'package:school_management/attendance_module/view/mark_class_attendance.d
 import 'package:school_management/attendance_module/view/client_attendance_view.dart';
 import 'package:school_management/authentication_module/view/profile_view.dart';
 import 'package:school_management/authentication_module/view/sign_in_view.dart';
+import 'package:school_management/authentication_module/view/test_screen.dart';
 import 'package:school_management/constants.dart';
 import 'package:school_management/payments/razorpay.dart';
 import 'package:school_management/screens/entryPoint/landing_view.dart';
@@ -46,12 +47,22 @@ final GoRouter goRouterConfig = GoRouter(
 
   routes: [
     // Splash
+    // GoRoute(
+    //   parentNavigatorKey: rootNavigatorKey,
+    //   path: GoPaths.splash,
+    //   name: GoPaths.splash,
+    //   builder: (context, state) {
+    //     return const OnbodingScreen(); // if you want a real splash, change this
+    //   },
+    // ),
+
+    // Splash
     GoRoute(
       parentNavigatorKey: rootNavigatorKey,
       path: GoPaths.splash,
       name: GoPaths.splash,
       builder: (context, state) {
-        return const OnbodingScreen(); // if you want a real splash, change this
+        return const AuthScreen(); // if you want a real splash, change this
       },
     ),
 
