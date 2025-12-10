@@ -79,12 +79,16 @@ class BlurredContainer extends StatelessWidget {
   final double? height;
   final double? width;
   final Widget child;
+  final double borderWidth;
+  final Color borderColor;
 
   const BlurredContainer({
     super.key,
     this.height,
     this.width,
     required this.child,
+    this.borderWidth = 1,
+    this.borderColor = AppColors.frenchGrey,
   });
 
   @override
@@ -96,6 +100,8 @@ class BlurredContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.whiteFrost.withOpacity(0.20),
         borderRadius: BorderRadius.circular(14),
+
+        border: Border.all(width: borderWidth, color: borderColor),
       ),
       child: ClipRRect(
         clipBehavior: Clip.hardEdge,
@@ -147,6 +153,9 @@ class BlurryContainer extends StatelessWidget {
   /// [borderRadius] of blurry container.
   final BorderRadius borderRadius;
 
+  final Color borderColor;     // NEW
+  final double borderWidth;    // NEW
+
   const BlurryContainer({
     Key? key,
     required this.child,
@@ -156,6 +165,8 @@ class BlurryContainer extends StatelessWidget {
     this.elevation = 0,
     this.padding = const EdgeInsets.all(8),
     this.color = Colors.transparent,
+    this.borderColor = Colors.white24,     // default value
+    this.borderWidth = 0,
     this.borderRadius = const BorderRadius.all(Radius.circular(20)),
   }) : super(key: key);
 
@@ -168,10 +179,12 @@ class BlurryContainer extends StatelessWidget {
     this.elevation = 0,
     this.padding = const EdgeInsets.all(8),
     this.color = Colors.transparent,
+    this.borderColor = Colors.white24,     // default value
+    this.borderWidth = 0,
     this.borderRadius = const BorderRadius.all(Radius.circular(20)),
-  })  : width = dimension,
-        height = dimension,
-        super(key: key);
+  }) : width = dimension,
+       height = dimension,
+       super(key: key);
 
   /// Creates a blurry container whose [width] and [height] are equal.
   const BlurryContainer.expand({
@@ -181,10 +194,12 @@ class BlurryContainer extends StatelessWidget {
     this.elevation = 0,
     this.padding = const EdgeInsets.all(8),
     this.color = Colors.transparent,
+    this.borderColor = Colors.white24,     // default value
+    this.borderWidth = 0,
     this.borderRadius = BorderRadius.zero,
-  })  : width = double.infinity,
-        height = double.infinity,
-        super(key: key);
+  }) : width = double.infinity,
+       height = double.infinity,
+       super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -200,7 +215,13 @@ class BlurryContainer extends StatelessWidget {
             height: height,
             width: width,
             padding: padding,
-            color: color,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(14),
+
+              border: Border.all(width: borderWidth, color: borderColor),
+            ),
+            // color: color,
             child: child,
           ),
         ),

@@ -5,6 +5,8 @@ import 'package:school_management/utils/dio/api_end_points.dart';
 import 'package:school_management/utils/dio/api_request.dart';
 
 class ClientProfileController extends GetxController with StateMixin<ClientProfileModel> {
+  RxInt sumit = 0.obs;
+
   getClientProfile() async {
     const apiEndPoint = APIEndPoints.getClientProfile;
 
@@ -29,4 +31,9 @@ class ClientProfileController extends GetxController with StateMixin<ClientProfi
 
     return response;
   }
+
+  updateValue() {
+    sumit.value++;
+  }
 }
+

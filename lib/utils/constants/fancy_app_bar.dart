@@ -29,7 +29,7 @@ class FancyTopBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(14),
         child: BackdropFilter(

@@ -42,4 +42,12 @@ class GoPaths {
   // Group Chat
   static const String groupChat = '/group-chat';
   static const String razorPayPayment = '/razor-pay-payment';
+  static const String getAnnouncements = '/get-announcements';
+  static const String createExamScreen = '/create-exam';
+  static const String examResultScreen = '/exam-result';
+  static const String support = '/support';
+
+
+  // setUP
+  static const String profileSetUp = '/profile-set-up';
 }

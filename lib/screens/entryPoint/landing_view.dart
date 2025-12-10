@@ -26,6 +26,7 @@ class LandingView extends StatefulWidget {
 }
 
 class _LandingViewState extends State<LandingView> {
+  int widgetValue = 5;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -40,8 +41,124 @@ class _LandingViewState extends State<LandingView> {
     super.initState();
   }
 
+  final questions = [
+    {
+      "id": 1,
+      "question": "1 st question ",
+      "optionA": "1",
+      "optionB": "2",
+      "optionC": "3",
+      "optionD": "4",
+      "correctAnswer": "A",
+      "marks": 10,
+    },
+    {
+      "id": 2,
+      "question": "Question 2 * adsfadfad",
+      "optionA": "adfasd",
+      "optionB": "adsfad",
+      "optionC": "asdfasdf",
+      "optionD": "adsfadf",
+      "correctAnswer": "D",
+      "marks": 10,
+    },
+    {
+      "id": 3,
+      "question": "asdfadf",
+      "optionA": "adfadf",
+      "optionB": "asdf",
+      "optionC": "asdf",
+      "optionD": "adf",
+      "correctAnswer": "C",
+      "marks": 10,
+    },
+    {
+      "id": 4,
+      "question": "asdf",
+      "optionA": "adf",
+      "optionB": "adf",
+      "optionC": "adf",
+      "optionD": "adsf",
+      "correctAnswer": "B",
+      "marks": 10,
+    },
+    {
+      "id": 5,
+      "question": "asdf",
+      "optionA": "adfa",
+      "optionB": "asdf",
+      "optionC": "fad",
+      "optionD": "adsf",
+      "correctAnswer": "D",
+      "marks": 10,
+    },
+    {
+      "id": 6,
+      "question": "asdf",
+      "optionA": "adf",
+      "optionB": "asdf",
+      "optionC": "adsf",
+      "optionD": "adf",
+      "correctAnswer": "C",
+      "marks": 10,
+    },
+    {
+      "id": 7,
+      "question": "adsf",
+      "optionA": "asdf",
+      "optionB": "adf",
+      "optionC": "dfa",
+      "optionD": "fad",
+      "correctAnswer": "B",
+      "marks": 10,
+    },
+    {
+      "id": 8,
+      "question": "fa123",
+      "optionA": "123",
+      "optionB": "123",
+      "optionC": "123123",
+      "optionD": "34535",
+      "correctAnswer": "C",
+      "marks": 10,
+    },
+    {
+      "id": 9,
+      "question": "tewr234",
+      "optionA": "wcw3tcg",
+      "optionB": "cw34tc",
+      "optionC": "c345cw34",
+      "optionD": "cw34c",
+      "correctAnswer": "C",
+      "marks": 10,
+    },
+    {
+      "id": 10,
+      "question": "cw34ct34",
+      "optionA": "cw34tc",
+      "optionB": "cw34ct",
+      "optionC": "cw34c",
+      "optionD": "w3ct",
+      "correctAnswer": "D",
+      "marks": 10,
+    },
+  ];
+
+  final ans = [
+    {"questionId": 1, "studentAnswer": "A", "isCorrect": true, "marksObtained": 10},
+    {"questionId": 2, "studentAnswer": "C", "isCorrect": false, "marksObtained": 0},
+    {"questionId": 3, "studentAnswer": "A", "isCorrect": false, "marksObtained": 0},
+    {"questionId": 4, "studentAnswer": "C", "isCorrect": false, "marksObtained": 0},
+    {"questionId": 5, "studentAnswer": "D", "isCorrect": true, "marksObtained": 10},
+    {"questionId": 6, "studentAnswer": "D", "isCorrect": false, "marksObtained": 0},
+    {"questionId": 7, "studentAnswer": "B", "isCorrect": true, "marksObtained": 10},
+    {"questionId": 8, "studentAnswer": "D", "isCorrect": false, "marksObtained": 0},
+    {"questionId": 9, "studentAnswer": "D", "isCorrect": false, "marksObtained": 0},
+    {"questionId": 10, "studentAnswer": "C", "isCorrect": false, "marksObtained": 0},
+  ];
+
   final manageList = [
-    KeyValuePair(key: "Exams", value: AssetPaths.examPNG, path: GoPaths.attendanceManagement),
+    KeyValuePair(key: "Exams", value: AssetPaths.examPNG, path: GoPaths.examResultScreen),
     KeyValuePair(
       key: "Manage Attendance",
       value: AssetPaths.managementGIF,
@@ -53,17 +170,23 @@ class _LandingViewState extends State<LandingView> {
       path: GoPaths.attendanceManagement,
     ),
     KeyValuePair(key: "Attendance", value: AssetPaths.correctPNG, path: GoPaths.userAttendanceView),
-    KeyValuePair(
-      key: "Assignments",
-      value: AssetPaths.assignmentsGIF,
-      path: GoPaths.userAttendanceView,
-    ),
+    // KeyValuePair(
+    //   key: "Assignments",
+    //   value: AssetPaths.assignmentsGIF,
+    //   path: GoPaths.userAttendanceView,
+    // ),
     KeyValuePair(key: "Fess", value: AssetPaths.paymentsPNG, path: GoPaths.razorPayPayment),
     KeyValuePair(key: "Result", value: AssetPaths.resultPNG, path: GoPaths.userAttendanceView),
     KeyValuePair(key: "Group Chat", value: AssetPaths.groupChatGIF, path: GoPaths.groupChat),
     KeyValuePair(key: "Apply", value: AssetPaths.idCardPNG, path: GoPaths.razorPayPayment),
     KeyValuePair(key: "Leave", value: AssetPaths.campFireGIF, path: GoPaths.leaveManagement),
   ];
+
+  updateWidgetValue() {
+    setState(() {
+      widgetValue++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,14 +198,31 @@ class _LandingViewState extends State<LandingView> {
       scaffoldKey: _scaffoldKey,
       body: Column(
         children: [
-          SizedBox(height: 20),
+          SizedBox(height: 30),
 
+          //   Text("widget Value $widgetValue", style: Theme.of(context).textTheme.displayMedium),
+          // _profileController.obx((state) {
+          //   return Obx(() => Text(
+          //     "controller Value ${_profileController.sumit.value}",
+          //     style: Theme.of(context).textTheme.displayMedium,
+          //   ));
+          // }),
+          //
+          //
+          // ElevatedButton(onPressed: () {
+          //
+          //     // updateWidgetValue();
+          //     _profileController.updateValue();
+          //   }, child: Text("Update the value")),
           FancyTopBar(
             showLogo: true,
+            onAction: () {
+              MyNavigator.pushNamed(GoPaths.getAnnouncements);
+            },
             onBack: () {
               _scaffoldKey.currentState?.openDrawer();
             },
-          ), // Text("data"),
+          ),
           Expanded(
             child: ListView(
               physics: BouncingScrollPhysics(),
@@ -137,6 +277,15 @@ class _LandingViewState extends State<LandingView> {
             final roleId = _profileController.state?.profile?.user?.roleId ?? 0;
             final className = _profileController.state?.classroom?.name ?? "";
             final grpChat = GoPaths.groupChat;
+
+            if (item.path == GoPaths.examResultScreen) {
+              MyNavigator.pushNamed(
+                GoPaths.examResultScreen,
+                extra: {"questions": questions, "answers": ans},
+              );
+              return;
+            }
+
             if (item.path == grpChat) {
               MyNavigator.pushNamed(GoPaths.groupChat, extra: {"grpId": className});
 

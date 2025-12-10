@@ -19,7 +19,6 @@ class AppColors {
   static const nutmegWood = Color(0xFF6D3A00);
   static const romance = Color(0xFFEFEFEF);
 
-
   //
   static const Color rangoonGreen = Color(0xFF1A1817);
   static const Color darkPastelGreen = Color(0xFF4DAE50);
@@ -33,7 +32,6 @@ class AppColors {
   static const blackEel = Color(0xFF444444);
   static const ghostWhite = Color(0xFFF8F8FF);
   static const hawkesBlue = Color(0xFFCAE7FF);
-
 
   // Medium Shades
   static const Color frenchGrey = Color(0xFFB9BCC8);
@@ -85,13 +83,11 @@ class AppColors {
   static const Color fernGreen = Color(0xFF578B3C);
   static const Color mediumGreen = Color(0xFF39AE41);
 
-
   static const Color lightRoyalBlue = Color(0xFF441DFC);
   static const Color darkSkyBlue = Color(0xFF4E81EB);
   static const Color mediumTealBlue = Color(0xFF055AAB);
   static const Color tealBlue = Color(0xFF027FA2);
   static const Color blueKoi = Color(0xFF699FD2);
-
 
   // TODO: primary color for the All graddding apps
   // static const Color primaryColor = Color(0xFF066AC9);
@@ -111,7 +107,7 @@ class AppColors {
   static const earlyDawn = Color(0xFFFFF8EC);
   static const fuelYellow = Color(0xFFF1A731);
 
-// IELTS Dashboard
+  // IELTS Dashboard
   static const Color lightSlateBlue = Color(0xFF686BFF);
   static const Color blueBell = Color(0xFF98A3C7);
   static const Color blueBayoux = Color(0xFF525F7F);
@@ -137,7 +133,7 @@ class AppColors {
   static const smokeGrey50 = Color(0x80747474);
   static const textGrey = Color(0xff747474);
 
-// GUEST Dashboard
+  // GUEST Dashboard
   static const Color saffronMango = Color(0xFFFFBF43);
   static const Color yellowOchre = Color(0xFFCC9900);
   static const Color goldenYellow = Color(0xFFFFDF00);
@@ -152,7 +148,7 @@ class AppColors {
 
   static const Color onyx = Color(0xFF111111);
 
-//   Study Abroad
+  //   Study Abroad
   static const Color aluminium = Color(0xFFABAFB1);
   static const Color asparagus = Color(0xFF73A35A);
   static const Color whiteLilac = Color(0xFFF5F7FC);
@@ -173,23 +169,14 @@ class AppColors {
 
 class GradientAppColors {
   static const Gradient goldenGradient = LinearGradient(
-    colors: [
-      AppColors.goldenYellow,
-      AppColors.yellowOchre,
-    ],
+    colors: [AppColors.goldenYellow, AppColors.yellowOchre],
   );
 
   static const Gradient resultGradient = LinearGradient(
-    colors: [
-      AppColors.mediumTealBlue,
-      AppColors.blueKoi,
-    ],
+    colors: [AppColors.mediumTealBlue, AppColors.blueKoi],
   );
 
   static const Gradient courseFinderCardGradient = LinearGradient(
-    colors: [
-      AppColors.butterflyBlue,
-      AppColors.greenishCyan,
-    ],
+    colors: [AppColors.butterflyBlue, AppColors.greenishCyan],
   );
 }

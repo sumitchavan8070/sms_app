@@ -22,6 +22,7 @@ class AppPageView extends StatefulWidget {
 
   final Widget body;
   final Widget? floatingActionWidget;
+  final Widget? bottomNavigationBar;
   final FloatingActionButtonLocation? floatLocation;
   final GlobalKey<ScaffoldState>? scaffoldKey; // <-- Rename this (recommended)
 
@@ -34,7 +35,7 @@ class AppPageView extends StatefulWidget {
     this.floatingActionWidget,
     this.floatLocation,
     this.showDrawer = false,
-    this.scaffoldKey,
+    this.scaffoldKey, this.bottomNavigationBar,
   });
 
   @override
@@ -56,14 +57,23 @@ class _AppPageViewState extends State<AppPageView> {
         children: [
           Center(
             child: Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height,
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width,
               decoration: BoxDecoration(border: Border.all(color: Color(0xFFC7BAF3), width: 4)),
               child: Column(
                 children: [
                   // Top 30% Gradient Area
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.32,
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height * 0.32,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
@@ -81,9 +91,10 @@ class _AppPageViewState extends State<AppPageView> {
         ],
       ),
       floatingActionButtonLocation:
-          widget.floatLocation ?? FloatingActionButtonLocation.centerFloat,
+      widget.floatLocation ?? FloatingActionButtonLocation.centerFloat,
       floatingActionButton:
-          widget.floatingActionWidget ?? _buildBottomNavigation(widget.showBottomNavigation),
+      widget.floatingActionWidget ?? _buildBottomNavigation(widget.showBottomNavigation),
+      bottomNavigationBar: widget.bottomNavigationBar ?? null,
     );
   }
 
@@ -102,21 +113,32 @@ class _AppPageViewState extends State<AppPageView> {
 
   _buildDrawer() {
     return Drawer(
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width,
       backgroundColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
-      child: GestureDetector(
-        onTap: () {
+      child: TapRegion(
+        onTapInside: (event) {
+          logger.e("onTapInside");
+
+          // widget.scaffoldKey?.currentState?.closeDrawer();
+        },
+        onTapOutside: (event) {
+          logger.e("onTapOutside");
           widget.scaffoldKey?.currentState?.closeDrawer();
         },
-
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
           child: Container(
             margin: EdgeInsets.only(
               left: 12,
-              right: MediaQuery.of(context).size.width * 0.24,
+              right: MediaQuery
+                  .of(context)
+                  .size
+                  .width * 0.24,
               top: 24,
               bottom: 10,
             ),
@@ -140,7 +162,10 @@ class _AppPageViewState extends State<AppPageView> {
 
                 ListTile(
                   leading: Image.asset(AssetPaths.homeGIF, fit: BoxFit.fill, width: 30, height: 30),
-                  title: Text("Home", style: Theme.of(context).textTheme.bodyMedium),
+                  title: Text("Home", style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyMedium),
                   onTap: () {
                     Navigator.pop(context);
                   },
@@ -148,7 +173,10 @@ class _AppPageViewState extends State<AppPageView> {
 
                 ListTile(
                   leading: Image.asset(AssetPaths.userGIF, fit: BoxFit.fill, width: 30, height: 30),
-                  title: Text("Profile", style: Theme.of(context).textTheme.bodyMedium),
+                  title: Text("Profile", style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyMedium),
                   onTap: () {
                     Navigator.pop(context);
 
@@ -164,7 +192,10 @@ class _AppPageViewState extends State<AppPageView> {
                     height: 30,
                   ),
 
-                  title: Text("Manage Leave", style: Theme.of(context).textTheme.bodyMedium),
+                  title: Text("Manage Leave", style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyMedium),
                   onTap: () {
                     Navigator.pop(context);
 
@@ -179,7 +210,10 @@ class _AppPageViewState extends State<AppPageView> {
                     width: 30,
                     height: 30,
                   ),
-                  title: Text("Change Password", style: Theme.of(context).textTheme.bodyMedium),
+                  title: Text("Change Password", style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyMedium),
                   onTap: () {
                     // TODO: Implement logout
                     widget.scaffoldKey?.currentState?.closeDrawer();
@@ -189,7 +223,10 @@ class _AppPageViewState extends State<AppPageView> {
 
                 ListTile(
                   leading: Image.asset(AssetPaths.busGIF, fit: BoxFit.fill, width: 30, height: 30),
-                  title: Text("Transport", style: Theme.of(context).textTheme.bodyMedium),
+                  title: Text("Transport", style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyMedium),
                   onTap: () {
                     // TODO: Implement logout
                     widget.scaffoldKey?.currentState?.closeDrawer();
@@ -202,10 +239,30 @@ class _AppPageViewState extends State<AppPageView> {
                     width: 30,
                     height: 30,
                   ),
-                  title: Text("Notices", style: Theme.of(context).textTheme.bodyMedium),
+                  title: Text("Notices", style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyMedium),
                   onTap: () {
                     // TODO: Implement logout
                     widget.scaffoldKey?.currentState?.closeDrawer();
+                  },
+                ),
+                ListTile(
+                  leading: Image.asset(
+                    AssetPaths.noticePNG,
+                    fit: BoxFit.fill,
+                    width: 30,
+                    height: 30,
+                  ),
+                  title: Text("Support", style: Theme
+                      .of(context)
+                      .textTheme
+                      .bodyMedium),
+                  onTap: () {
+                    // TODO: Implement logout
+                    widget.scaffoldKey?.currentState?.closeDrawer();
+                    MyNavigator.pushNamed(GoPaths.support);
                   },
                 ),
                 Spacer(),
@@ -231,7 +288,11 @@ class _AppPageViewState extends State<AppPageView> {
                         const SizedBox(width: 8),
                         Text(
                           "Logout",
-                          style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .labelLarge
+                              ?.copyWith(
                             letterSpacing: 0.15,
                             color: AppColors.black,
                             fontWeight: FontWeight.w500,

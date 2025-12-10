@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:school_management/attendance_module/view/change_password.dart';
+import 'package:school_management/attendance_module/view/get_announcements_view.dart';
 import 'package:school_management/attendance_module/view/grp_chat.dart';
 import 'package:school_management/attendance_module/view/leave_management_screen.dart';
 import 'package:school_management/attendance_module/view/mark_class_attendance.dart';
 import 'package:school_management/attendance_module/view/client_attendance_view.dart';
+import 'package:school_management/authentication_module/view/create_exam_screen.dart';
+import 'package:school_management/authentication_module/view/exam_result_screen.dart';
 import 'package:school_management/authentication_module/view/profile_view.dart';
+import 'package:school_management/authentication_module/view/prp_setup.dart';
 import 'package:school_management/authentication_module/view/sign_in_view.dart';
+import 'package:school_management/authentication_module/view/support_screen.dart';
 import 'package:school_management/authentication_module/view/test_screen.dart';
 import 'package:school_management/constants.dart';
 import 'package:school_management/payments/razorpay.dart';
@@ -56,21 +61,30 @@ final GoRouter goRouterConfig = GoRouter(
     //   },
     // ),
 
-    // Splash
+    // Auth Screen
+    // GoRoute(
+    //   parentNavigatorKey: rootNavigatorKey,
+    //   path: GoPaths.splash,
+    //   name: GoPaths.splash,
+    //   builder: (context, state) {
+    //     return const AuthScreen(); // if you want a real splash, change this
+    //   },
+    // ),
+
     GoRoute(
       parentNavigatorKey: rootNavigatorKey,
-      path: GoPaths.splash,
-      name: GoPaths.splash,
+      path: GoPaths.profileSetUp,
+      name: GoPaths.profileSetUp,
       builder: (context, state) {
-        return const AuthScreen(); // if you want a real splash, change this
+        return const ProfileSetup(); // if you want a real splash, change this
       },
     ),
 
     // Onboarding
     GoRoute(
       parentNavigatorKey: rootNavigatorKey,
-      path: GoPaths.onboarding,
-      name: GoPaths.onboarding,
+      path: GoPaths.splash,
+      name: GoPaths.splash,
       builder: (context, state) {
         return const OnbodingScreen();
       },
@@ -118,7 +132,6 @@ final GoRouter goRouterConfig = GoRouter(
       builder: (context, state) => ChangePasswordView(),
     ),
 
-
     GoRoute(
       parentNavigatorKey: rootNavigatorKey,
       path: GoPaths.attendanceManagement,
@@ -138,15 +151,40 @@ final GoRouter goRouterConfig = GoRouter(
       },
     ),
 
-
     GoRoute(
       parentNavigatorKey: rootNavigatorKey,
       path: GoPaths.razorPayPayment,
       name: GoPaths.razorPayPayment,
       builder: (context, state) {
-
-
         return RazorPayPaymentScreen();
+      },
+    ),
+
+    GoRoute(
+      parentNavigatorKey: rootNavigatorKey,
+      path: GoPaths.getAnnouncements,
+      name: GoPaths.getAnnouncements,
+      builder: (context, state) {
+        return GetAnnouncementsView();
+      },
+    ),
+    GoRoute(
+      parentNavigatorKey: rootNavigatorKey,
+      path: GoPaths.support,
+      name: GoPaths.support,
+      builder: (context, state) {
+        return SupportPage();
+      },
+    ),
+    GoRoute(
+      parentNavigatorKey: rootNavigatorKey,
+      path: GoPaths.examResultScreen,
+      name: GoPaths.examResultScreen,
+      builder: (context, state) {
+        final extras = state.extra as Map<String, dynamic>;
+        final questions = extras["questions"] as List<Map<String, dynamic>>;
+        final answers = extras["answers"] as Map<int, String>;
+        return ExamResultScreen(questions: questions, answers: answers,);
       },
     ),
   ],
